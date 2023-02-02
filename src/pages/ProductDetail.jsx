@@ -3,12 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Carousel, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { addCarThunk } from '../store/slices/car.slice';
 import { filterPoroductCtegoryThunk } from '../store/slices/product.slice';
 
 const ProductDetail = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { id } = useParams()
+    const [input,setInput] = useState(1)
     const [products, setProducs] = useState({})
     const newList = useSelector(state => state.product)
     useEffect(() => {
@@ -19,6 +21,20 @@ const ProductDetail = () => {
             })
     }, [id])
     console.log(products)
+
+    const btnadd =()=> {
+        setInput(input +1)
+    }
+    const restarUno = () => {
+        setInput(input -1)
+    }
+    const addcard = (id) => {
+        const purchase = {
+            quantity: input,
+            productId: products.id
+        }
+        dispatch(addCarThunk(purchase))
+    }
 
     return (
         <div>
@@ -31,7 +47,7 @@ const ProductDetail = () => {
                                 className="d-block w-100"
                                 src={products.images?.[0].url}
                                 alt="First slide"
-                                style={{ width: '200px', height: '400px', objectFit: "scale-down" }}
+                                style={{ width: '200px', height: '500px', objectFit: "scale-down" }}
                             />
                             <Carousel.Caption bsPrefix className='aaaa'>
                             </Carousel.Caption>
@@ -41,7 +57,7 @@ const ProductDetail = () => {
                                 className="d-block w-100"
                                 src={products.images?.[1].url}
                                 alt="Second slide"
-                                style={{ width: '200px', height: '400px', objectFit: "contain" }}
+                                style={{ width: '200px', height: '500px', objectFit: "scale-down" }}
                             />
 
                             <Carousel.Caption bsPrefix className='aaaa'>
@@ -53,7 +69,7 @@ const ProductDetail = () => {
                                 className="d-block w-100"
                                 src={products.images?.[2].url}
                                 alt="Third slide"
-                                style={{ width: '200px', height: '400px', objectFit: "contain" }}
+                                style={{ width: '200px', height: '500px', objectFit: "scale-down" }}
                             />
 
                             <Carousel.Caption bsPrefix className='aaaa'>
@@ -64,8 +80,17 @@ const ProductDetail = () => {
                 </Col>
                 <Col lg={4}>
                     <h1>{products.title}</h1>
-                    <p>{products.description}</p></Col>
-                <div className=''></div>
+                    <p>{products.description}</p>
+                    <div>
+                        <input type="button" value="+" onClick={btnadd} />
+                        <input type="text" value={input} onChange={e => setInput(e.target.value)}/>
+                        <input type="button" value="-" onClick={restarUno} />
+                    </div>
+                    <Button variant="danger" size="mg" style={{width:'100%', margin:'5px'}}
+                        onClick={addcard}
+                    >Add to Car</Button>
+                    </Col>
+                    
             </Row>
 
             <Row xs={2} md={3} lg={4} className='my-5 g-4'>

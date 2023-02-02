@@ -28,14 +28,16 @@ const Home = () => {
                     <ListGroup>
                         <ListGroup.Item
                             style={{ cursor: 'pointer' }}
-                            onClick={() => dispatch(getProductThunk())}>
+                            onClick={() => dispatch(getProductThunk())}
+                            action>
                             Todos</ListGroup.Item>
                         {
                             categories.map(c => (
                                 <ListGroup.Item
                                     key={c.id}
                                     style={{ cursor: 'pointer' }}
-                                    onClick={() => dispatch(filterPoroductCtegoryThunk(c.id))}>
+                                    onClick={() => dispatch(filterPoroductCtegoryThunk(c.id))}
+                                    action>
                                     {c.name}</ListGroup.Item>
                             ))
                         }
@@ -68,7 +70,7 @@ const Home = () => {
                                             <span>Price</span> <br />
                                             ${p.price}
                                         </Card.Text>
-                                        <Button style={{ display: "flex",position:"absolute",justifyContent:"center", right: "1rem", bottom:"1rem", borderRadius: "50%", width: "22px" }} variant="danger">A</Button>
+                                        <Button style={{ display: "flex",position:"absolute",justifyContent:"center", right: "2.5rem", bottom:"1rem", borderRadius: "50%", width: "22px" }} variant="danger">A</Button>
                                     </Card.Body>
                                 </Card>
                             </Col>
