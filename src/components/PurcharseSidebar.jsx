@@ -11,6 +11,10 @@ const PurcharseSidebar = ({show,handleClose}) => {
       dispatch(carGetThunk())
     }, [])
     console.log(setcar)
+    let total = 0
+    setcar.forEach(p => {
+      total += p.product.price * p.quantity
+    });
     return (
         <Offcanvas show={show} onHide={handleClose} placement='end' name='end'>
         <Offcanvas.Header closeButton>
@@ -18,12 +22,18 @@ const PurcharseSidebar = ({show,handleClose}) => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <ul>
-            <Button onClick={() => dispatch(purcharseCardThunk())}>Purcharse</Button>
             {setcar.map(car=>(
               <ProductCar car={car} handleClose={handleClose} key={car.id}/>
             ))}
           </ul>
         </Offcanvas.Body>
+        <div className='check'>
+            <div className='total_check'>
+              <span className='label_check'>Total:</span>
+              <b style={{fontSize:'1.3rem'}}>$ {total}</b>
+            </div>
+          <button className='btn_check' onClick={() => dispatch(purcharseCardThunk())}>Purcharse</button>
+          </div>
       </Offcanvas>
     );
 };

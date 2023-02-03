@@ -21,11 +21,11 @@ const Purchase = () => {
                                     <Card.Img variant="top" src={e.product.images[0].url} style={{ width: '100%', height: "150px", objectFit: "contain", padding: "1rem" }} alt="" />
                                     <Card.Body>
                                         <Card.Title variant='dark'>{e.product.title}</Card.Title>
-                                        <Card.Text>
-                                            <span>Price</span> <br />
-                                            ${e.product.price}
+                                        <Card.Text style={{textAlign:'left'}}>
+                                            <span>Price: ${e.product.price}</span> <br />
+                                            <span>Cant: <b>{e.quantity}</b></span> <br />
+                                            <span>Total : ${e.product?.price * e.quantity}</span>
                                         </Card.Text>
-                                        <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "2.5rem", bottom: "1rem", borderRadius: "50%", width: "22px" }} variant="danger">A</Button>
                                     </Card.Body>
                                 </Card>
                             </Link>

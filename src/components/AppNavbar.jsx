@@ -34,14 +34,13 @@ const AppNavbar = () => {
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to="/">New App</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">Ecommerce</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>
-              <Nav.Link as={Link} to="/login">Login</Nav.Link>
+              <Nav.Link as={Link} to="/user">User</Nav.Link>
               <Nav.Link as={Link} to="/purchase">Purcharse</Nav.Link>
               <Nav.Link onClick={handleShow}>Car</Nav.Link>
-              <Nav.Link onClick={logout}>Log out</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

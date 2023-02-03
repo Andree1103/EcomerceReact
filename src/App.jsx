@@ -9,6 +9,7 @@ import LoadingScreen from './components/LoadingScreen'
 import { useSelector } from 'react-redux'
 import { Container } from 'react-bootstrap'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import User from './pages/User'
 
 function App() {
   const isLoading = useSelector(state => state.isLoading)
@@ -24,6 +25,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route element={<ProtectedRoutes />}>
             <Route path='/purchase' element={<Purchase />} />
+            <Route path='/user' element={<User/>}/>
           </Route>
         </Routes>
       </Container>

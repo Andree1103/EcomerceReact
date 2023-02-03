@@ -40,7 +40,7 @@ const Product = ({ p }) => {
                     </Card.Text>
                 </Card.Body>
             </Link>
-            <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "2.5rem", bottom: "1rem", borderRadius: "50%", width: "22px", fontSize:'1.5rem' }} variant="danger" onClick={addcard}><i className='bx bx-cart-add' ></i></Button>
+            <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "2.5rem", bottom: "1rem", borderRadius: "50%", width: "22px", fontSize:'1.5rem' }} variant="dark" onClick={addcard}><i className='bx bx-cart-add' ></i></Button>
         </Card>
     );
 };

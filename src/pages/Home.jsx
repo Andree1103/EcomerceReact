@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Form, InputGroup, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
+import { Button, Card, Col, Dropdown, Form, InputGroup, ListGroup, ListGroupItem, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Product from '../components/Product';
@@ -18,6 +18,9 @@ const Home = () => {
         axios.get('https://e-commerce-api-v2.academlo.tech/api/v1/categories')
             .then(res => setCategories(res.data))
     }, [])
+    const [price1,setPrice1] = useState("")
+    const [price2,setPrice2] = useState("")
+    
 
     return (
         <div>
