@@ -96,9 +96,9 @@ const ProductDetail = () => {
                     </div>
                     </div>
                     
-                    <Button variant="danger" size="mg" style={{ width: '100%', margin: '5px' }}
+                    <Button variant="danger" size="mg" style={{ width: '100%', margin: '5px' ,fontSize:'1.5rem'}}
                         onClick={addcard}
-                    >Add to Car</Button>
+                    > Add <i className='bx bx-cart-add' ></i></Button>
                 </Col>
 
             </Row>
@@ -116,7 +116,7 @@ const ProductDetail = () => {
                                     <span>Price</span> <br />
                                     ${p.price}
                                 </Card.Text>
-                                <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "1rem", bottom: "1rem", borderRadius: "50%", width: "22px" }} variant="danger">A</Button>
+                                <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "1rem", bottom: "1rem", borderRadius: "50%", width: "22px",fontSize:'1.5rem' }} variant="danger"><i className='bx bx-cart-add' ></i></Button>
                             </Card.Body>
                         </Card>
                     </Col>

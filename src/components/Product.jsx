@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { addCarThunk } from '../store/slices/car.slice';
 
-const Product = ({p}) => {
+const Product = ({ p }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -22,10 +22,10 @@ const Product = ({p}) => {
                 text: "Redirigiendo al login",
                 icon: "warning",
                 button: "ok"
-              })
-              .then(() => {
-                  navigate("/login");
-              });
+            })
+                .then(() => {
+                    navigate("/login");
+                });
         }
     }
     return (
@@ -40,7 +40,7 @@ const Product = ({p}) => {
                     </Card.Text>
                 </Card.Body>
             </Link>
-            <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "2.5rem", bottom: "1rem", borderRadius: "50%", width: "22px" }} variant="danger" onClick={addcard}>A</Button>
+            <Button style={{ display: "flex", position: "absolute", justifyContent: "center", right: "2.5rem", bottom: "1rem", borderRadius: "50%", width: "22px", fontSize:'1.5rem' }} variant="danger" onClick={addcard}><i className='bx bx-cart-add' ></i></Button>
         </Card>
     );
 };
