@@ -10,7 +10,7 @@ const ProductDetail = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { id } = useParams()
-    const [input,setInput] = useState(1)
+    const [input, setInput] = useState(1)
     const [products, setProducs] = useState({})
     const newList = useSelector(state => state.product)
     useEffect(() => {
@@ -22,11 +22,11 @@ const ProductDetail = () => {
     }, [id])
     console.log(products)
 
-    const btnadd =()=> {
-        setInput(input +1)
+    const btnadd = () => {
+        setInput(input + 1)
     }
     const restarUno = () => {
-        setInput(input -1)
+        setInput(input - 1)
     }
     const addcard = (id) => {
         const purchase = {
@@ -81,19 +81,31 @@ const ProductDetail = () => {
                 <Col lg={4}>
                     <h1>{products.title}</h1>
                     <p>{products.description}</p>
-                    <div>
-                        <input type="button" value="+" onClick={btnadd} />
-                        <input type="text" value={input} onChange={e => setInput(e.target.value)}/>
-                        <input type="button" value="-" onClick={restarUno} />
+                    <div className='info_pro'>
+                    <div className='price'>
+                        <span className='label_pre'>Precio</span>
+                        <span className='amount'>$ {products.price}</span>
                     </div>
-                    <Button variant="danger" size="mg" style={{width:'100%', margin:'5px'}}
+                    <div className='quantity-box'>
+                        <div className='cant_box'>Cantidad</div>
+                    <div className='btns'>
+                        <button type="button" onClick={btnadd}><i className='bx bx-plus' ></i></button>
+                        <div className='value' onChange={e => setInput(e.target.value)}>{input}</div>
+                        <button type="button" onClick={restarUno}><i className='bx bx-minus'></i></button>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <Button variant="danger" size="mg" style={{ width: '100%', margin: '5px' }}
                         onClick={addcard}
                     >Add to Car</Button>
-                    </Col>
-                    
-            </Row>
+                </Col>
 
-            <Row xs={2} md={3} lg={4} className='my-5 g-4'>
+            </Row>
+            <div className='similar_items'>
+            <h1>Similar Items</h1>
+            </div>
+            <Row xs={2} md={3} lg={4} className='my-3 g-4'>
                 {newList.map(p => (
                     <Col key={p.id}>
                         <Card onClick={() => navigate(`/products/${p.id}`)} style={{ width: '100%', height: "350px" }}>
